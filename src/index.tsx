@@ -1,6 +1,8 @@
 import React from "react"
 import { render } from "react-dom"
 
+import "./style.css"
+
 type Form = {
     fieldA: string
     fieldB: string
@@ -62,8 +64,6 @@ export class App extends React.Component<Props, State> {
                 <div>
                     <button onClick={this.show}>Show</button>
                 </div>
-
-                <h1>Hello, world!</h1>
             </div>
         )
     }
