@@ -1,0 +1,27 @@
+{
+    "name": "reactform",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node node_modules/parcel-bundler/bin/cli.js src/index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wk-j/react-form.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/wk-j/react-form/issues"
+    },
+    "homepage": "https://github.com/wk-j/react-form#readme",
+    "devDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "parcel-bundler": "^1.12.3",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "typescript": "^3.4.5"
+    }
+}
