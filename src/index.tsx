@@ -9,15 +9,11 @@ type Form = {
     fieldC: string
 }
 
-type Forms = keyof (Form)
-
-type Props = {}
-
 type State = {
     data: Form
 }
 
-export class App extends React.Component<Props, State> {
+export class App extends React.Component<{}, State> {
     constructor(props) {
         super(props)
 
@@ -30,7 +26,7 @@ export class App extends React.Component<Props, State> {
         }
     }
 
-    onChange = (key: Forms) => (e) => {
+    onChange = (key: keyof (Form)) => (e) => {
         var value = e.target.value;
         let data = this.state.data;
         data[key] = value
