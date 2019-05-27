@@ -19,9 +19,9 @@ export class App extends React.Component<{}, State> {
 
         this.state = {
             data: {
-                fieldA: "field-a",
-                fieldB: "field-a",
-                fieldC: "field-a"
+                fieldA: "Field A",
+                fieldB: "Field B",
+                fieldC: "Field C"
             }
         }
     }
