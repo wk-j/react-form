@@ -1,5 +1,6 @@
 import React from "react"
 import { render } from "react-dom"
+import { Form as QForm } from "./form/Form"
 
 import "./style.css"
 
@@ -60,6 +61,8 @@ export class App extends React.Component<{}, State> {
                 <div>
                     <button onClick={this.show}>Show</button>
                 </div>
+
+                <QForm />
             </div>
         )
     }
