@@ -10,15 +10,9 @@ type State = {
 type InputProps = { name: keyof (State) } &
     React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-export class QInput extends React.Component<InputProps> {
-    constructor(props) {
-        super(props)
-    }
-    public render() {
-        return (
-            <input {...this.props} />
-        )
-    }
+class MyInput extends React.Component<InputProps> {
+    constructor(props) { super(props) }
+    render = () => <input {...this.props} />
 }
 
 export class Form extends React.Component<{}, State> {
@@ -35,42 +29,35 @@ export class Form extends React.Component<{}, State> {
         this.state = this.defaultState
     }
 
-    onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        let name = e.target.name
-        let value = e.target.value
-        this.setState({ ...this.state, [name]: value })
-    }
+    private onChange = (e: ChangeEvent<HTMLInputElement>) =>
+        this.setState({ ...this.state, [e.target.name]: e.target.value })
 
-    onClick = (e) => {
-        console.log(this.state)
-    }
+    private onShow = (e) => console.log(this.state)
 
-    onClear = (e) => {
-        this.setState(this.defaultState);
-    }
+    private onClear = (e) => this.setState(this.defaultState)
 
     public render() {
         let s = this.state
         return (
-            <div style={{ background: "lightgrey", padding: "5px" }}>
+            <div style={{ padding: "5px" }}>
                 <div>
-                    Field A
-                    <QInput name="fieldA" value={s.fieldA} onChange={this.onChange}></QInput>
+                    <label>Field A</label>
+                    <MyInput name="fieldA" value={s.fieldA} onChange={this.onChange} />
                 </div>
                 <div>
-                    Field B
-                    <QInput name="fieldB" value={s.fieldB} onChange={this.onChange}></QInput>
+                    <label>Field B</label>
+                    <MyInput name="fieldB" value={s.fieldB} onChange={this.onChange} />
                 </div>
                 <div>
-                    Field C
-                    <QInput name="fieldC" value={s.fieldC} onChange={this.onChange}></QInput>
+                    <label>Field C</label>
+                    <MyInput name="fieldC" value={s.fieldC} onChange={this.onChange} />
                 </div>
                 <div>
-                    Field D
-                    <QInput name="fieldD" value={s.fieldD} onChange={this.onChange}></QInput>
+                    <label>Field D</label>
+                    <MyInput name="fieldD" value={s.fieldD} onChange={this.onChange} />
                 </div>
-                <div>
-                    <button onClick={this.onClick}>Show</button>
+                <div style={{ paddingTop: "5px" }}>
+                    <button onClick={this.onShow}>Show</button>
                     <button onClick={this.onClear}>Clear</button>
                 </div>
             </div>
